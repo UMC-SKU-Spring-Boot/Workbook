@@ -1,6 +1,5 @@
 # 1. 멤버 미션 조회 쿼리(페이징 포함)
 select mm.*, s.name as store_name from member_mission as mm
-join mission as m on mm.mission_id = m.id
 join store s on m.store_id = s.id
 where mm.created_at <
     (select created_at from member_mission where id = 3)
@@ -31,8 +30,4 @@ where
 order by m.id desc limit 15;
 
 # 4. 마이 페이지 조회 쿼리
-select * from mission as m
-    join store as s on m.store_id = s.id
-    join member as mem on s.region_id = mem.spec_address
-         where mem.id = 1 and (m.created_at < (select created_at mission where id = 3) and m.id < 3)
-order by m.id desc limit 15;
+select * from member as mem where mem.id = 1;

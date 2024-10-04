@@ -30,4 +30,4 @@ where
 order by m.id desc limit 15;
 
 # 4. 마이 페이지 조회 쿼리
-select * from member as mem where mem.id = 1;
+select * from member where id = 1;
